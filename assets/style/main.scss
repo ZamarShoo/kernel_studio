@@ -1,0 +1,146 @@
+@import './../lib/style/normilize.scss';
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: local('TT Interfaces Regular'), local('TT-Interfaces-Regular'),
+        url('../fonts/TTInterfaces-Regular.woff2') format('woff2'),
+        url('../fonts/TTInterfaces-Regular.woff') format('woff'),
+        url('../fonts/TTInterfaces-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: local('TT Interfaces Semi Bold'), local('TT-Interfaces-Semi-Bold'),
+        url('../fonts/TTInterfaces-SemiBold.woff2') format('woff2'),
+        url('../fonts/TTInterfaces-SemiBold.woff') format('woff'),
+        url('../fonts/TTInterfaces-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+#cursor {
+    position: absolute;
+    border-radius: 50%;
+    transition: .5s cubic-bezier(.75,-1.27,.3,2.33) transform, .2s cubic-bezier(.75,-1.27,.3,2.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000;
+    width: 16px;
+    height: 16px;
+    background: #3072EC;
+}
+
+.magnetic {
+    margin: -50px;
+    padding: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    /*border: 1px solid #000; //use this for debugging*/
+  }
+
+#cursor.hidden {
+    transform: scale(0.001);
+}
+
+#cursor.active {
+    transform: scale(2.0);
+}
+
+#cursor.activeNav {
+    background: red;
+}
+
+* {
+    cursor: none;
+}
+
+body {
+    background-color: #1F1F1F;
+    overflow-x: hidden;
+}
+
+section {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.noize {
+    background: url(../img/noise_bg.png);
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-size: contain;
+}
+
+.section-wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10vh;
+}
+
+header {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.header-left a {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+    position: relative;
+    z-index: 1001;
+}
+
+.header-right ul {
+    display: flex;
+
+    li {
+        margin-right: 50px;
+        padding: 10px;
+        transition: .3s;
+    }
+
+    a {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        z-index: 1001;
+    }
+}
+
+.header-right ul li:nth-child(5) {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+//hd 1200-1440 -- 1160
+
+@media screen and (max-width: 1400px) {
+    
+}
+
+//tablet 640-1200 -- 620
+
+@media screen and (max-width: 1200px) {
+    
+}
+
+@media screen and (max-width: 750px) {
+    
+}
+
+//mobile до 640 -- 300
+
+@media screen and (max-width: 640px) {
+   
+}
