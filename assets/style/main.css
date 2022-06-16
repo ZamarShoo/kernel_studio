@@ -25,6 +25,10 @@ html {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -396,6 +400,18 @@ template {
   width: 16px;
   height: 16px;
   background: #3072EC;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#cursor.hidden, #cursor.hiddenB {
+  -webkit-transform: scale(0.001);
+          transform: scale(0.001);
+}
+
+#cursor.active, #cursor.activeB {
+  -webkit-transform: scale(2);
+          transform: scale(2);
 }
 
 .magnetic {
@@ -406,18 +422,109 @@ template {
   /*border: 1px solid #000; //use this for debugging*/
 }
 
-#cursor.hidden {
-  -webkit-transform: scale(0.001);
-          transform: scale(0.001);
+.magnetic-big {
+  margin: -100px;
+  padding: 100px;
 }
 
-#cursor.active {
-  -webkit-transform: scale(2);
-          transform: scale(2);
+.circle-btn {
+  text-align: center;
+  width: 160px;
+  height: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-#cursor.activeNav {
-  background: red;
+.btn-text {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.ripple1 {
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  border-radius: 50%;
+  background: #3072EC;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-animation: animateEnter .5s ease-out;
+          animation: animateEnter .5s ease-out;
+  z-index: 1;
+}
+
+.ripple2 {
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  border-radius: 50%;
+  background: #3072EC;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-animation: animateOut .5s ease-out;
+          animation: animateOut .5s ease-out;
+  z-index: 1;
+}
+
+@-webkit-keyframes animateEnter {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@keyframes animateEnter {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@-webkit-keyframes animateOut {
+  0% {
+    width: 450px;
+    height: 450px;
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes animateOut {
+  0% {
+    width: 450px;
+    height: 450px;
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+  }
 }
 
 * {
@@ -432,26 +539,22 @@ body {
 section {
   width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .noize {
   background: url(../img/noise_bg.png);
   mix-blend-mode: overlay;
   opacity: 0.4;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
   background-size: contain;
-}
-
-.section-wrapper {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  padding-top: 10vh;
+  background-repeat: repeat;
 }
 
 .header {
@@ -459,6 +562,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1001;
 }
 
 header {
@@ -507,6 +611,106 @@ header {
   display: none;
 }
 
+p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #FFFFFF;
+}
+
+.first-section-wrapper {
+  min-height: 100vh;
+}
+
+.first-section-wrapper .section-first {
+  position: relative;
+  margin-top: 30vh;
+}
+
+.first-section-wrapper .lines-up, .first-section-wrapper .lines-down {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-section-wrapper .line {
+  background: #FFFFFF;
+  height: 1px;
+  width: 100%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.first-section-wrapper h1 {
+  position: relative;
+  font-weight: 600;
+  font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1500 - 320)));
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 60px 0;
+  white-space: nowrap;
+}
+
+.first-section-wrapper ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20px;
+}
+
+.first-section-wrapper ul li {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.first-section-wrapper--bottom {
+  margin-top: 15vh;
+}
+
+.first-section-wrapper--bottom .first-bottom {
+  margin-left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.first-section-wrapper--bottom h2 {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 140%;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.first-section-wrapper--bottom p {
+  max-width: 320px;
+}
+
 @media screen and (max-width: 1500px) {
   section {
     width: 1180px;
@@ -516,6 +720,16 @@ header {
 @media screen and (max-width: 1200px) {
   #cursor {
     display: none;
+  }
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1700 - 320)));
+    margin: 40px 0;
+  }
+  .first-section-wrapper--bottom .first-bottom {
+    display: block;
+  }
+  .first-section-wrapper--bottom .first-bottom .first-bottom-l {
+    margin-bottom: 60px;
   }
   .magnetic {
     margin: 0;
@@ -663,6 +877,39 @@ header {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1800 - 320)));
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1900 - 320)));
+  }
+  .first-section-wrapper--bottom h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .first-section-wrapper--bottom .first-bottom .first-bottom-l {
+    margin-bottom: 40px;
+  }
+  .first-section-wrapper .section-first {
+    margin-top: 25vh;
+  }
+  .first-section-wrapper--bottom {
+    margin-top: 10vh;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1950 - 320)));
+  }
+}
+
 @media screen and (max-width: 750px) {
   section {
     padding: 0 30px;
@@ -672,6 +919,63 @@ header {
   }
   .header-right i.close {
     right: 30px;
+  }
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1600 - 320)));
+    margin: 20px 0;
+  }
+  .first-section-wrapper ul li {
+    font-size: 10px;
+  }
+  .first-section-wrapper--bottom .first-bottom {
+    margin-left: 0;
+  }
+  .first-bottom a {
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (1800 - 320)));
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (2000 - 320)));
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .first-section-wrapper h1 {
+    font-size: calc(41px + (178 - 41) * ((100vw - 320px) / (3000 - 320)));
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .first-section-wrapper h1 {
+    font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .first-section-wrapper h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .first-section-wrapper h1 {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .first-section-wrapper h1 {
+    font-size: 36px;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -6,11 +6,11 @@ window.addEventListener('mousemove', e => {
     cursor.classList.remove('hidden')
 })
 
-var navHeaderElem = 0
+
 const cursor = document.getElementById("cursor")
 const links = document.getElementsByTagName("a")
 
-const navHeader = document.getElementsByClassName("nav-link")
+
 
 mouseX = 0, mouseY = 0, posX = 0, posY = 0
 
@@ -69,3 +69,41 @@ function moveMagnet(event) {
     ease: Power4.easeOut
   })
 }
+
+
+$('.magnetic-big .btn-text').mouseenter(function(e) {
+    $('#cursor').css({ transform: 'scale(0)' });
+    var bounding = this.getBoundingClientRect()
+    let x = e.clientX - bounding.left;
+    let y = e.clientY - bounding.top;
+    $(this).children('.circle-btn').css({ border: '2px solid rgba(0,0,0,0)' });
+
+    let ripple1 = document.createElement('span')
+    ripple1.style.left = x + 'px'
+    ripple1.style.top = y + 'px'
+    ripple1.classList.add('ripple1')
+    this.appendChild(ripple1)
+})
+
+$('.magnetic-big .btn-text').mouseleave(function(e) {
+    $('#cursor').css({ transform: '' });
+    setTimeout(function(e) {
+        $(".ripple1").remove()
+    }, 100)
+
+    var bounding = this.getBoundingClientRect()
+    let x = e.clientX - bounding.left;
+    let y = e.clientY - bounding.top;
+
+    let ripple2 = document.createElement('span')
+    ripple2.style.left = x + 'px'
+    ripple2.style.top = y + 'px'
+    ripple2.classList.add('ripple2')
+    this.appendChild(ripple2)
+
+    $(this).children('.circle-btn').css({ border: '2px solid #FFFFFF' });
+
+    setTimeout(function(e) {
+        $(".ripple2").remove()
+    }, 500)
+})
