@@ -472,7 +472,7 @@ details[open] summary ~ *{
 
 summary {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
 
     &::-webkit-details-marker { display: none; }
@@ -483,6 +483,7 @@ summary {
         font-size: 20px;
         line-height: 140%;
         color: #FFFFFF;
+        width: 80%;
     }
 
     p {
@@ -568,6 +569,26 @@ footer {
 }
 
 .section-404_right {
+    width: 50%;
+    margin-left: auto;
+}
+
+.section-policy {
+    
+    section div {
+        border-bottom: 1px solid white;
+        padding-bottom: 60px;
+    }
+
+    h1 {
+        font-size: 40px !important;
+        margin: 0 !important;
+        text-transform: initial !important;
+        white-space: normal !important;
+    }
+}
+
+.policy-wrapper {
     width: 50%;
     margin-left: auto;
 }
@@ -803,6 +824,10 @@ footer {
     footer .footer-info {
         width: 100% !important;
         margin-left: 0 !important;
+    }
+    .policy-wrapper {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
