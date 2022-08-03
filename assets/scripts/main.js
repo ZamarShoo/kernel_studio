@@ -107,3 +107,44 @@ $('.magnetic-big .btn-text').mouseleave(function(e) {
         $(".ripple2").remove()
     }, 500)
 })
+
+$('.portfolio .item .article-item--images').mouseenter(function(e) {
+    $('#cursor_portfolio').addClass('active')
+})
+
+$('.portfolio .item .article-item--images').mouseleave(function(e) {
+    $('#cursor_portfolio').removeClass('active')
+})
+
+$('.service article').mouseenter(function(e) {
+    $('#cursor_service').addClass('active')
+    $('#cursor').addClass('active_noScale')
+})
+
+$('.service article').mouseleave(function(e) {
+    $('#cursor_service').removeClass('active')
+    $('#cursor').removeClass('active_noScale')
+})
+
+$('details').mouseenter(function(e) {
+    if(!$(this)[0].hasAttribute("open")) {
+        $('#cursor_service').addClass('active')
+        $('#cursor').addClass('active_noScale')
+    }
+})
+
+$('details').click(function(e) {
+    if(!$(this)[0].hasAttribute("open")) {
+        $('#cursor_service').removeClass('active')
+        $('#cursor').removeClass('active_noScale')
+    } else {
+        $('#cursor_service').addClass('active')
+        $('#cursor').addClass('active_noScale')
+    }
+})
+
+$('details').mouseleave(function(e) {
+    $(this).removeClass('active')
+    $('#cursor_service').removeClass('active')
+    $('#cursor').removeClass('active_noScale')
+})
