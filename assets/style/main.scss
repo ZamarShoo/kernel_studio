@@ -545,6 +545,33 @@ footer {
     }
 }
 
+.section-404 {
+    position: relative;
+    z-index: 1001;
+    h1 {
+        font-size: 100px !important;
+        margin: 0 !important;
+    }
+}
+
+.section-first_404 {
+    display: flex !important;
+
+    p {
+        margin: 10px 0 20px;
+    }
+
+    a {
+        text-decoration: underline;
+        font-weight: 600;
+    }
+}
+
+.section-404_right {
+    width: 50%;
+    margin-left: auto;
+}
+
 //hd 1200-1440 -- 1160
 
 @media screen and (max-width: 1500px) {
@@ -882,6 +909,18 @@ footer {
     }
     summary h3 {
         font-size: 16px;
+    }
+
+    .section-first_404 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section-404_right {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
     }
 }
 
