@@ -12,10 +12,10 @@
     />
     <link rel="stylesheet" href="./assets/style/main.css">
 
-    <title>Kernel Studio</title>
+    <title>Kernel Studio | Contacts</title>
 </head>
-<body>
-    <div class="noize"></div>
+
+<body data-barba="wrapper">
     <div id="cursor">
         <div id="cursor_portfolio">
             <p>посмотреть<br>кейс</p>
@@ -25,12 +25,19 @@
         </div>
     </div>
 
+    <div class="loader">
+        <div class="page-transition"></div>
+    </div>
+
+   <div class="container-wrapper" data-barba="container" data-barba-namespace="contacts"  data-title="Контакты">
+    <div class="noize"></div>
+
     <div class="header">
         <div>
             <section>
                 <header>
                     <div class="header-left">
-                        <a class="logo btn-click magnetic" data-strength="20" data-strength-text="10" href="">
+                        <a class="logo btn-click magnetic" data-strength="20" data-strength-text="10" href="/index.html">
                             <span class="btn-text">
                                 <span class="btn-text-inner">kernel.</span>
                             </span>
@@ -68,7 +75,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="btn-click magnetic" data-strength="20" data-strength-text="10" href="">
+                                    <a class="btn-click magnetic" data-strength="20" data-strength-text="10" href="/contacts.html">
                                         <span class="btn-text">
                                             <span class="btn-text-inner">контакты</span>
                                         </span>
@@ -177,13 +184,16 @@
             </footer>
         </section>
     </div>
+   </div>
 
     <script
 			  src="https://code.jquery.com/jquery-3.6.0.min.js"
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js" integrity="sha512-0tlhMhMGPohLm/YwaskxH7jJuUGqU/XPTl+HE0dWrhGbpEBRIZYMQdbHC0CmyNPzZKTBd8JoVZnvMcL7hzlFOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js" integrity="sha512-0tlhMhMGPohLm/YwaskxH7jJuUGqU/XPTl+HE0dWrhGbpEBRIZYMQdbHC0CmyNPzZKTBd8JoVZnvMcL7hzlFOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/lib/scripts/fm.revealator.jquery.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="./assets/lib/scripts/hover-effect.umd.js"></script>

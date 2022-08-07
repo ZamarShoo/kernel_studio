@@ -12,11 +12,13 @@
     />
     <link rel="stylesheet" href="./assets/style/main.css">
 
-    <title>Kernel Studio</title>
+    <title>Kernel Studio | Home</title>
 </head>
-<body>
-    <div class="noize"></div>
-    <div id="cursor">
+<body data-barba="wrapper">
+    <div class="loader">
+        <div class="page-transition"></div>
+    </div>
+    <div id="cursor" class="">
         <div id="cursor_portfolio">
             <p>посмотреть<br>кейс</p>
         </div>
@@ -24,13 +26,15 @@
             <p>Подробнее</p>
         </div>
     </div>
+    <div class="container-wrapper" data-barba="container" data-barba-namespace="home" data-title="Kernel">
+        <div class="noize"></div>
 
     <div class="header">
         <div>
             <section>
                 <header>
                     <div class="header-left">
-                        <a class="logo btn-click magnetic" data-strength="20" data-strength-text="10" href="">
+                        <a class="logo btn-click magnetic" data-strength="20" data-strength-text="10" href="/index.html">
                             <span class="btn-text">
                                 <span class="btn-text-inner">kernel.</span>
                             </span>
@@ -68,14 +72,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="btn-click magnetic" data-strength="20" data-strength-text="10" href="">
+                                    <a class="btn-click magnetic" data-strength="20" data-strength-text="10" href="/contacts.html">
                                         <span class="btn-text">
                                             <span class="btn-text-inner">контакты</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="btn-click magnetic" data-strength="20" data-strength-text="10" href="">
+                                    <a class="btn-click magnetic open_modal" data-strength="20" data-strength-text="10" href="">
                                         <span class="btn-text">
                                             <span class="btn-text-inner">заполнить бриф</span>
                                         </span>
@@ -407,11 +411,72 @@
             </footer>
         </section>
     </div>
+    </div>
+
+    <div class="open-modal">
+        <div class="modalIn">
+            <div class="popup">
+                <i class="close_modal"></i>
+                <form class="popup_form" action="POST">
+                    <label>
+                        <input type="text" placeholder="Ваше имя" name="person_name" id="person_name" class="">
+                    </label>
+                    <div class="select_input">
+                        <p>Способ связи</p>
+                        <ul>
+                            <li id="phone" class="active" data-select="phone"><i style="background-image: url(./assets/img/phone.svg);"></i></li>
+                            <li id="mail"  data-select="mail"><i style="background-image: url(./assets/img/mail.svg);"></i></li>
+                            <li id="telegram"  data-select="telegram"><i style="background-image: url(./assets/img/tg.svg);"></i></li>
+                            <li id="whatsapp"  data-select="whatsapp"><i style="background-image: url(./assets/img/wa.svg);"></i></li>
+                            <li id="vkontakte"  data-select="vkontakte"><i style="background-image: url(./assets/img/vk.svg);"></i></li>
+                        </ul>
+                        <div class="selected_input">
+                            <label id="label_phone" class="active">
+                                <input type="text" placeholder="Ваш номер телефона" name="person_phone" id="person_phone">
+                            </label>
+                            <label id="label_mail">
+                                <input type="mail" placeholder="Ваша почта" name="person_mail" id="person_mail">
+                            </label>
+                            <label id="label_telegram">
+                                <input type="text" placeholder="Телеграм (без @)" name="person_telegram" id="person_telegram">
+                            </label>
+                            <label id="label_whatsapp">
+                                <input type="text" placeholder="Whats App" name="person_whatsapp" id="person_whatsapp">
+                            </label>
+                            <label id="label_vkontakte">
+                                <input type="text" placeholder="Vkontakte" name="person_vkontakte" id="person_vkontakte">
+                            </label>
+                        </div>
+                        <label>
+                            <input type="text" placeholder="Комментарий" name="person_comment" id="person_comment" class="">
+                        </label>
+                        <div class="btn-wrapper">
+                            <a class="logo btn-click magnetic magnetic-big btn-form" data-strength="20" data-strength-text="10">
+                                <div class="btn-text">
+                                    <div class="btn-text-inner circle-btn">Отправить</div>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="policy_form">Нажимая на кнопку, вы соглашаетесь<br> с <a href="/policy.html">политикой конфиденциальности</a></p>
+                    </div>
+                </form>
+                <div class="thanks_popup">
+                    <div class="thanks_top">
+                        <h3>Ваша заявка успешно отправлена.</h3>
+                        <p>В ближайшее время мы свяжемся с вами</p>
+                    </div>
+                    <div class="div_close">закрыть</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script
 			  src="https://code.jquery.com/jquery-3.6.0.min.js"
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@barba/core"></script>        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r99/three.min.js" integrity="sha512-0tlhMhMGPohLm/YwaskxH7jJuUGqU/XPTl+HE0dWrhGbpEBRIZYMQdbHC0CmyNPzZKTBd8JoVZnvMcL7hzlFOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/lib/scripts/fm.revealator.jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -423,17 +488,5 @@
     <script src="./assets/scripts/onclickers.js"></script>
     <script src="./assets/scripts/window_worker.js"></script>
     <script src="./assets/scripts/main.js"></script>
-    <!-- <script>
-        new hoverEffect ({
-            parent: document.querySelector('.article-item--images_1'),
-            intensity: 1,
-            speedIn: 0.8,
-            speedOut: 0.8,
-            image1: './assets/img/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s1100-c50.jpg',
-            image2: './assets/img/np_file_159370.jpeg',
-            displacementImage: './assets/img/Logo.jpg'
-            
-        })
-    </script> -->
 </body>
 </html>
